@@ -7,26 +7,39 @@ var count = 0;
 // Display initial count value
 counterValue.innerHTML = count;
 
-// Get each button
-const reset = document.getElementById('reset');
-const increase = document.getElementById('increase');
+
+// All buttons
+const buttons = document.querySelectorAll('.btn');
+// Individual button
 const decrease = document.getElementById('decrease');
+const increase = document.getElementById('increase');
+const reset = document.getElementById('reset');
+
 
 // Event listeners per button
-reset.addEventListener('click', resetValue);
-increase.addEventListener('click', increaseValue);
-decrease.addEventListener('click', decreaseValue);
+buttons.forEach(button => button.addEventListener('click', changeCounterValue));
 
-// Counter functions to be shown in innerHTML
-function resetValue() {
-  count = 0;
-  counterValue.innerHTML = count;
-}
-function increaseValue() {
-  count++;
-  counterValue.innerHTML = count;
-}
-function decreaseValue() {
-  count--;
-  counterValue.innerHTML = count;
+function changeCounterValue(event) {
+  var eventTarget = event.target;
+
+  // Increase, decrease or reset counter value and display updated count value
+  if(eventTarget == decrease){
+    count--;
+    counterValue.innerHTML = count;
+  } else if(eventTarget == increase){
+    count++;
+    counterValue.innerHTML = count;
+  } else {
+    count = 0;
+    counterValue.innerHTML = count;
+  }
+
+  // change color of counter value based on negative or positive digit
+  if(count < 0){
+    counterValue.style.color = "red";
+  } else if(count > 0){
+    counterValue.style.color = "green";
+  } else {
+    counterValue.style.color = "deeppink";
+  }
 }

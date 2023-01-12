@@ -40,9 +40,7 @@ The project objectives are to create a counter and write conditions that change 
 
 ## Site Link
 
->**Live Site: [Generate Random Quote](https://vlorozco.github.io/javascript-counter/)**
-
----
+>**Live Site: [Counter](https://vlorozco.github.io/javascript-counter/)**
 
 ## What I Learned
 
@@ -79,8 +77,6 @@ function changeCounterValue(event) {
   }
 }
 ```
-
----
 
 ## Author
 
